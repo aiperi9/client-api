@@ -29,21 +29,21 @@ services:
     volumes:
       - ~/.m2:/root/.m2  # Кэш для Maven
 
-  test:
-    build:
-      context: .
-    container_name: spring-test
-
-    env_file:
-      - .env
-    command: mvn --batch-mode test
-
-    depends_on:
-      - postgres
-    environment:
-      SPRING_PROFILES_ACTIVE: ${SPRING_PROFILES_ACTIVE}
-    volumes:
-      - ~/.m2:/root/.m2  # Тот же Maven кэш, чтобы не качать зависимости заново
+#  test:
+#    build:
+#      context: .
+#    container_name: spring-test
+#
+#    env_file:
+#      - .env
+#    command: mvn --batch-mode test
+#
+#    depends_on:
+#      - postgres
+#    environment:
+#      SPRING_PROFILES_ACTIVE: ${SPRING_PROFILES_ACTIVE}
+#    volumes:
+#      - ~/.m2:/root/.m2  # Тот же Maven кэш, чтобы не качать зависимости заново
 
 volumes:
   pgdata:
